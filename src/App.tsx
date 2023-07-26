@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import {Counter} from './features/counter/Counter';
 import './App.css';
+import DataTable from "features/dataTable/DataTable";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+    return (
+        <div className="App">
+            {/*<header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -50,9 +52,10 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
-    </div>
-  );
+      </header>*/}
+            <DataTable/>
+        </div>
+    );
 }
 
 export default App;
