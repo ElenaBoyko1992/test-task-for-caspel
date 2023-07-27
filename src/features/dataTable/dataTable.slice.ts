@@ -15,6 +15,11 @@ const slice = createSlice({
                 state.dataTable.splice(index, 1)
             }
         },
+        editTableRow(state, action: PayloadAction<{ key: string, data: DataTableStringType }>) {
+            const index = state.dataTable.findIndex(row => row.key === action.payload.key)
+            console.log('editTableRow', state.dataTable[index])
+            state.dataTable[index] = {...state.dataTable[index], ...action.payload.data}
+        },
     },
     extraReducers: (builder) => {
 
@@ -23,12 +28,12 @@ const slice = createSlice({
 
 export const dataTableReducer = slice.reducer;
 export const dataTableReducerThunks = {};
-export const {setDataToTable, deleteTableRow} = slice.actions;
+export const {setDataToTable, deleteTableRow, editTableRow} = slice.actions;
 
 
 //types
 export type DataTableStringType = {
-    key: string;
+    key?: string;
     name: string;
     date: string;
     numericalValue: number;
