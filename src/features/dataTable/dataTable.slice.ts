@@ -3,7 +3,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 const slice = createSlice({
     name: "dataTable",
     initialState: {
-        dataTable: [] as DataTableStringType[]
+        dataTable: [] as DataTableStringType[],
     },
     reducers: {
         setDataToTable(state, action: PayloadAction<{ data: DataTableStringType }>) {
@@ -15,11 +15,12 @@ const slice = createSlice({
                 state.dataTable.splice(index, 1)
             }
         },
-        editTableRow(state, action: PayloadAction<{ key: string, data: DataTableStringType }>) {
+        editTableRow(state, action: PayloadAction<{ key: string, data: editTableRowArgType }>) {
             const index = state.dataTable.findIndex(row => row.key === action.payload.key)
             console.log('editTableRow', state.dataTable[index])
             state.dataTable[index] = {...state.dataTable[index], ...action.payload.data}
         },
+
     },
     extraReducers: (builder) => {
 
@@ -33,8 +34,10 @@ export const {setDataToTable, deleteTableRow, editTableRow} = slice.actions;
 
 //types
 export type DataTableStringType = {
-    key?: string;
+    key: string;
     name: string;
     date: string;
     numericalValue: number;
 }
+
+type editTableRowArgType = Omit<DataTableStringType, "key">;
