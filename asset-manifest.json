@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/test-task-for-caspel/static/css/main.fa103a27.css",
+    "main.js": "/test-task-for-caspel/static/js/main.5d9f743b.js",
+    "static/js/787.72a5fbec.chunk.js": "/test-task-for-caspel/static/js/787.72a5fbec.chunk.js",
+    "index.html": "/test-task-for-caspel/index.html",
+    "main.fa103a27.css.map": "/test-task-for-caspel/static/css/main.fa103a27.css.map",
+    "main.5d9f743b.js.map": "/test-task-for-caspel/static/js/main.5d9f743b.js.map",
+    "787.72a5fbec.chunk.js.map": "/test-task-for-caspel/static/js/787.72a5fbec.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa103a27.css",
+    "static/js/main.5d9f743b.js"
+  ]
+}
