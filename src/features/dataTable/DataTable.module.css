@@ -1,0 +1,24 @@
+.tableContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tableMenu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0 10px 0;
+}
+
+.selectSearch {
+    width: 350px;
+}
+
+.addButton{
+   width: 150px;
+}
+
+.table {
+    border: 1px solid #d7d7d8;
+    border-radius: 5px;
+}

@@ -15,20 +15,23 @@ const slice = createSlice({
                 state.dataTable.splice(index, 1)
             }
         },
-        editTableRow(state, action: PayloadAction<{ key: string, data: editTableRowArgType }>) {
+        editTableRow(state, action: PayloadAction<{ key: string, data: EditFormValuesType }>) {
             const index = state.dataTable.findIndex(row => row.key === action.payload.key)
-            console.log('editTableRow', state.dataTable[index])
-            state.dataTable[index] = {...state.dataTable[index], ...action.payload.data}
+            const newNameValue = action.payload.data.name ? action.payload.data.name : state.dataTable[index].name
+            const newDateValue = action.payload.data.date ? action.payload.data.date : state.dataTable[index].date
+            const newNumericalValue = action.payload.data.numericalValue ? action.payload.data.numericalValue : state.dataTable[index].numericalValue
+            state.dataTable[index] = {
+                key: state.dataTable[index].key,
+                name: newNameValue,
+                date: newDateValue,
+                numericalValue: newNumericalValue
+            }
         },
-
-    },
-    extraReducers: (builder) => {
 
     },
 });
 
 export const dataTableReducer = slice.reducer;
-export const dataTableReducerThunks = {};
 export const {setDataToTable, deleteTableRow, editTableRow} = slice.actions;
 
 
@@ -40,4 +43,8 @@ export type DataTableStringType = {
     numericalValue: number;
 }
 
-type editTableRowArgType = Omit<DataTableStringType, "key">;
+export type EditFormValuesType = {
+    name: string | undefined;
+    date: any | undefined;
+    numericalValue: number | undefined;
+}

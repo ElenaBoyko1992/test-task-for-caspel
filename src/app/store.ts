@@ -1,11 +1,8 @@
-import {configureStore, ThunkAction, Action} from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
-import dataTable from "features/dataTable/DataTable";
+import {Action, configureStore, ThunkAction} from '@reduxjs/toolkit';
 import {dataTableReducer} from "features/dataTable/dataTable.slice";
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
         table: dataTableReducer
     },
 });
